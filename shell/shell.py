@@ -38,6 +38,9 @@ while (1):
     
     temp_command = user_in.split()
     if temp_command[0] == "cd":
+        if len(temp_command) == 1:
+            os.write(1, "cd is the command for changing directories\n".encode())
+            continue
         try:
             os.chdir(temp_command[1])
         except FileNotFoundError:
